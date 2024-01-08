@@ -1,0 +1,112 @@
+
+import React, { useState,useEffect } from 'react';
+import searchIco from '../assets/images/search02.png'
+import profileIco from '../assets/images/Vector.png'
+import cartIco from '../assets/images/cart.png'
+import { Link } from 'react-router-dom';
+import Login from './Login';
+
+
+export default function Navbar({handleLogScreen}) {
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeItem, setActiveIcon] = useState("Home");
+ 
+
+
+    const toggleMenu = () => {
+        console.log(isOpen);
+      setIsOpen(!isOpen);
+    };
+    
+
+  return (
+    <nav className={`p-2 pt-2  left-0 right-0 top-0 z-20 bg-white `}>
+    <div className="container mx-auto flex items-center justify-between lg:justify-between">
+      <Link to="/" className="font-bold text-2xl">3Elegant</Link>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={toggleMenu}
+        className="md:hidden focus:outline-none"
+      >
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
+
+      {/* Desktop Menu */}
+      <div className="hidden md:flex space-x-10 items-center">
+        <Link to="/" onClick={()=>setActiveIcon("Home")} className={`${activeItem==="Home"? "font-bold":""}`}><span className={`${activeItem==="Home"? "font-bold":""}`}>Home</span> </Link>
+        <Link to="/shop" onClick={()=>setActiveIcon("Shop")} className={`${activeItem==="Shop"? "font-bold":"text-gray-500"}`}>Shop</Link>
+        <Link to="/Product" onClick={()=>setActiveIcon("Product")} className={`${activeItem==="Product"? "font-bold":"text-gray-500"}`}>Product</Link>
+        <Link to="/contact"onClick={()=>setActiveIcon("Contact")} className={`${activeItem==="Contact"? "font-bold":"text-gray-500"}`}>Contact</Link>
+      
+
+
+      </div>
+    
+      <div className="hidden md:flex space-x-5 items-center">
+        <img src={searchIco} alt="" />
+        <img src={profileIco} onClick={handleLogScreen} alt="" />
+        <div className='flex'> 
+        <img src={cartIco} alt="" />
+        <div className=' flex bg-black rounded-full text-white w-6 h-6 justify-center items-center '><p>3</p></div>
+
+        </div>
+      </div>
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden absolute top-16 w-1/2 bg-white mt-5   p-4 rounded h-2/3 text-left flex flex-col items-stretch">
+          <div className='flex space-x-2'>
+          <input type="text" className='border-black border-2 rounded-md' />
+<img src={searchIco} alt="" />
+          </div>
+          <Link to="/" onClick={()=>setActiveIcon("Home")} className={`${activeItem==="Home"? "font-bold":""}`}><span className={`${activeItem==="Home"? "font-bold":""} block py-2`}>Home</span> </Link>
+        <Link to="/shop" onClick={()=>setActiveIcon("Shop")} className={`${activeItem==="Shop"? "font-bold":"text-gray-500"} block py-2`}>Shop</Link>
+        <Link to="/Product" onClick={()=>setActiveIcon("Product")} className={`${activeItem==="Product"? "font-bold":"text-gray-500"} block py-2`}>Product</Link>
+        <Link to="/contact"onClick={()=>setActiveIcon("Contact")} className={`${activeItem==="Contact"? "font-bold":"text-gray-500"} block py-2`}>Contact</Link>
+          <div>
+            
+        <div className="flex justify-between self-end mt-10">
+        
+            
+              <div className='text-left'>Cart</div>
+              <div className='text-right'>  <div className='flex'> 
+        <img src={cartIco} alt="" />
+        <div className=' flex bg-black rounded-full text-white w-6 h-6 justify-center items-center '><p>3</p></div>
+
+        </div></div>
+    
+        </div>
+        <div className="flex justify-between self-end mt-3" onClick={handleLogScreen} >
+        
+            
+        <div className='text-left'>Login</div>
+        <div className='text-right'>  <div className='flex'> 
+  <img src={profileIco} alt="" />
+
+
+  </div></div>
+
+  </div>
+          </div>
+       
+        </div>
+      )}
+    </div>
+
+  </nav>
+);
+}
