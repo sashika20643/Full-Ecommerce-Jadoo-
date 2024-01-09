@@ -44,14 +44,14 @@ if(action==="prev"){
 <img src={previmg} className='focus:scale-150 scale-100 cursor-pointer' alt="" onClick={()=>handleSlideIndex("prev")}/>
         </div>
         <div className='absolute top-1/2 right-0 -translate-y-1/2 focus:scale-130 ' id='next'>
-<img src={nextimg} classN ame='focus:scale-150 cursor-pointer' alt="" onClick={()=>handleSlideIndex("next")} />
+<img src={nextimg} className='focus:scale-150 cursor-pointer' alt="" onClick={()=>handleSlideIndex("next")} />
         </div>
         
         <div className='absolute bottom-10 left-1/2 -translate-x-1/2 flex space-x-4'>
 {slider.map(
 (slide,index)=>{
     return(
-<div className={`bg-white h-2 rounded-full ${index===slideIndex? "w-6":"w-2"}`}></div>
+<div key={index} className={`bg-white h-2 rounded-full ${index===slideIndex? "w-6":"w-2"}`}></div>
 
     )
 }

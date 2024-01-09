@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+
+  font-size:16px ;
+}
 
 *{
   box-sizing: border-box;
@@ -10,7 +14,19 @@
   padding:0;
 }
 body{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
+}
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
 }
 
 
@@ -19,4 +35,16 @@ div {
 }
 .slider {
   transition: background-image 0.5s ease-in-out;
+}
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Media query for small devices (phones) */
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
 }
