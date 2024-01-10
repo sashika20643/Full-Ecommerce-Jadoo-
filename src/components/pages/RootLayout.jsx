@@ -4,6 +4,7 @@ import Login from "../Login";
 import { useState } from "react";
 import {CartContextProvider} from "../Store/CartContext";
 import Cartdialogbox from "../Cartdialogbox";
+import Footer from "../Footer";
 
  function RootLayout(){
     const [logscreen, setLogScreen] = useState(false);
@@ -27,6 +28,9 @@ return(
 {cartOpen && <Cartdialogbox toggleCart={toggleCart}/>}
 
 <Outlet/>
+
+
+<Footer/>
 </CartContextProvider>
 </>
 )

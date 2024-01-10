@@ -27,7 +27,7 @@ return total+item.quantity;
     
 
   return (
-    <nav className={`p-2 pt-2  left-0 right-0 top-0 z-20 bg-white fixed mb-10 `}>
+    <nav className={`p-2 py-5  left-0 right-0 top-0 z-20 bg-white fixed mb-10 `}>
     <div className="container mx-auto flex items-center justify-between lg:justify-between">
       <Link to="/" className="font-bold text-2xl">3Elegant</Link>
 
