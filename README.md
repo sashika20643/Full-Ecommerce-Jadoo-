@@ -15,6 +15,7 @@ This project is an immersive exploration of web development technologies, featur
 - **Node.js**
 - **Express**
 - **Tailwind CSS**
+- **This is used as backed-** https://github.com/MohitSojitra/e-commerce-store.git
 
 ## Features
 
